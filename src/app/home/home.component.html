@@ -1,0 +1,21 @@
+<div class="dataDispaly">
+    <h1>Welcome {{message}} !</h1>
+</div>
+<div class="container" *ngIf="!list">
+    <div class="mb-3 mt-5 searchOption">
+        <input type="text" class="form-control" placeholder="search" autocomplete="off" [(ngModel)]="searchText" />
+    </div>
+    <div class="mb-2 mt-3">
+        <input type="file" class="form-control addButton" (change)="addClick($event)" name="file">
+    </div>
+    <div class="mb-2 mt-3">
+        <button type="button" class="btn btn-outline-info logButton" (click)="logOut()">Logout</button>
+    </div>
+    <div class="card">
+        <div class="row g-2">
+            <div class="col-lg-3 col-md-4" *ngFor="let images of pictures | filter:searchText">
+                <img src="{{ images.src }}" alt="image" class="h-100 w-100">
+            </div>
+        </div>
+    </div>
+</div>
